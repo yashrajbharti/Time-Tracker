@@ -1,7 +1,7 @@
 import express from "express";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import { readDB, writeDB } from "../utils/db.js";
+import { readFromDB, writeToDB } from "../utils/db.mjs";
 
 dotenv.config();
 
@@ -10,19 +10,19 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 router.post("/login", (req, res) => {
   const { employeeId, email } = req.body;
-  const db = readDB();
+  // to do: add project id to employee projects: []
+  const db = readFromDB();
 
   const employee = db.employees.find(
-    (emp) => emp.id === employeeId && emp.email === email
+    (employee) => employee.id === employeeId && employee.email === email
   );
 
-  if (!employee) {
+  if (!employee)
     return res.status(401).json({ error: "Invalid employee credentials" });
-  }
 
   if (employee.invited !== 0) {
     employee.invited = 0;
-    writeDB(db);
+    writeToDB(db);
   }
 
   const token = jwt.sign({ employeeId, role: "employee" }, JWT_SECRET, {
