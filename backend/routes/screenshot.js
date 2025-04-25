@@ -1,10 +1,11 @@
 import express from "express";
 import { readFromDB, writeToDB } from "../utils/db.mjs";
 import { nanoid } from "nanoid";
+import { auth } from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.post("/", (req, res) => {
+router.post("/", auth(), (req, res) => {
   const {
     employeeId,
     projectId,
@@ -17,6 +18,12 @@ router.post("/", (req, res) => {
 
   if (!employeeId || !projectId || !link || !timestamp)
     return res.status(400).json({ error: "Missing required fields" });
+
+  if (req.user.role === "employee" && req.user.employeeId !== employeeId) {
+    return res
+      .status(403)
+      .json({ error: "Employees can only upload their own screenshots" });
+  }
 
   const db = readFromDB();
   const ipAddress = req.headers["x-forwarded-for"];
@@ -74,7 +81,7 @@ router.post("/", (req, res) => {
   res.status(201).json(newScreenshot);
 });
 
-router.get("/", (req, res) => {
+router.get("/", auth("admin"), (req, res) => {
   const { employeeId, projectId, start, end } = req.query;
   const db = readFromDB();
 
@@ -95,7 +102,7 @@ router.get("/", (req, res) => {
   res.json(data);
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", auth("admin"), (req, res) => {
   const { id } = req.params;
   const db = readFromDB();
 

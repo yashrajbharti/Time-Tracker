@@ -1,10 +1,11 @@
 import express from "express";
 import { readFromDB, writeToDB } from "../utils/db.mjs";
 import { nanoid } from "nanoid";
+import { auth } from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.post("/", (req, res) => {
+router.post("/", auth("admin"), (req, res) => {
   const { name, description, employees, projectId } = req.body;
 
   if (!name || !projectId || !Array.isArray(employees))
@@ -43,7 +44,7 @@ router.post("/", (req, res) => {
   res.status(201).json(newTask);
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", auth(), (req, res) => {
   const { id } = req.params;
   const db = readFromDB();
 
@@ -54,12 +55,12 @@ router.get("/:id", (req, res) => {
   res.json(task);
 });
 
-router.get("/", (_, res) => {
+router.get("/", auth(), (_, res) => {
   const db = readFromDB();
   res.json(db.tasks);
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", auth("admin"), (req, res) => {
   const { id } = req.params;
   const { name, description, employees } = req.body;
 
@@ -81,7 +82,7 @@ router.put("/:id", (req, res) => {
   res.json(task);
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", auth("admin"), (req, res) => {
   const { id } = req.params;
   const db = readFromDB();
 

@@ -1,11 +1,12 @@
 import express from "express";
 import { readFromDB, writeToDB } from "../utils/db.mjs";
 import { nanoid } from "nanoid";
+import { auth } from "../middleware/auth.js";
 
 const router = express.Router();
 
 // We added fingerprint and ip address here
-router.post("/window", (req, res) => {
+router.post("/window", auth(), (req, res) => {
   const { employeeId, projectId, taskId, start, end, duration, fingerprint } =
     req.body;
 
@@ -55,7 +56,7 @@ router.post("/window", (req, res) => {
   res.status(201).json(newLog);
 });
 
-router.get("/window", (req, res) => {
+router.get("/window", auth(), (req, res) => {
   const { start, end, employeeId, projectId, taskId } = req.query;
   const db = readFromDB();
 
@@ -74,7 +75,7 @@ router.get("/window", (req, res) => {
   res.json(logs);
 });
 
-router.post("/project-time", (req, res) => {
+router.post("/project-time", auth(), (req, res) => {
   const { employeeId, time, income } = req.body;
 
   if (!employeeId || time === undefined || income === undefined)
@@ -95,7 +96,7 @@ router.post("/project-time", (req, res) => {
   res.status(201).json(summary);
 });
 
-router.get("/project-time", (req, res) => {
+router.get("/project-time", auth(), (req, res) => {
   const { employeeId } = req.query;
   const db = readFromDB();
 

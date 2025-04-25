@@ -1,11 +1,11 @@
 import express from "express";
 import { readFromDB, writeToDB } from "../utils/db.mjs";
 import { nanoid } from "nanoid";
+import { auth } from "../middleware/auth.js";
 
 const router = express.Router();
 
-// Project takes care of Employees
-router.post("/", (req, res) => {
+router.post("/", auth("admin"), (req, res) => {
   const { name, description, employees = [] } = req.body;
 
   if (!name || !description)
@@ -37,22 +37,12 @@ router.post("/", (req, res) => {
 
   db.projects.push(newProject);
 
-  db.employees = db.employees.map((employee) => {
-    if (employees.includes(employee.id))
-      return {
-        ...employee,
-        projects: [...new Set([...employee.projects, projectId])],
-      };
-
-    return employee;
-  });
-
   writeToDB(db);
 
   return res.status(201).json(newProject);
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", auth(), (req, res) => {
   const { id } = req.params;
   const db = readFromDB();
 
@@ -63,12 +53,12 @@ router.get("/:id", (req, res) => {
   res.json(project);
 });
 
-router.get("/", (_, res) => {
+router.get("/", auth(), (_, res) => {
   const db = readFromDB();
   res.json(db.projects);
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", auth("admin"), (req, res) => {
   const { id } = req.params;
   const { name, description, employees } = req.body;
 
@@ -85,12 +75,6 @@ router.put("/:id", (req, res) => {
   if (Array.isArray(employees)) project.employees = employees;
 
   db.employees = db.employees.map((employee) => {
-    if (employees?.includes(employee.id))
-      return {
-        ...employee,
-        projects: [...new Set([...employee.projects, id])],
-      };
-
     if (employee.projects.includes(id))
       return {
         ...employee,
@@ -106,7 +90,7 @@ router.put("/:id", (req, res) => {
   res.json(project);
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", auth("admin"), (req, res) => {
   const { id } = req.params;
   const db = readFromDB();
 

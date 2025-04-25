@@ -1,10 +1,11 @@
 import express from "express";
 import { readFromDB, writeToDB } from "../utils/db.mjs";
 import { nanoid } from "nanoid";
+import { auth } from "../middleware/auth.js";
 
 const router = express.Router();
 
-router.post("/", (req, res) => {
+router.post("/", auth("admin"), (req, res) => {
   const { name, email } = req.body;
 
   if (!name || !email)
@@ -41,7 +42,7 @@ router.post("/", (req, res) => {
   return res.status(201).json(newEmployee);
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id", auth(), (req, res) => {
   const { id } = req.params;
   const db = readFromDB();
 
@@ -52,7 +53,7 @@ router.get("/:id", (req, res) => {
   return res.json(employee);
 });
 
-router.get("/", (req, res) => {
+router.get("/", auth(), (req, res) => {
   const { select } = req.query;
   const db = readFromDB();
 
@@ -74,9 +75,16 @@ router.get("/", (req, res) => {
   return res.json(employees);
 });
 
-router.put("/:id", (req, res) => {
+router.put("/:id", auth(), (req, res) => {
   const { id } = req.params;
   const updates = req.body;
+
+  if (
+    req.user.role !== "admin" &&
+    (req.user.role !== "employee" || req.user.employeeId !== id)
+  ) {
+    return res.status(403).json({ error: "Not authorized" });
+  }
 
   const db = readFromDB();
   const employeeIndex = db.employees.findIndex(
@@ -99,7 +107,7 @@ router.put("/:id", (req, res) => {
   return res.json(updatedEmployee);
 });
 
-router.put("/deactivate/:id", (req, res) => {
+router.put("/deactivate/:id", auth(), (req, res) => {
   const { id } = req.params;
   const db = readFromDB();
 

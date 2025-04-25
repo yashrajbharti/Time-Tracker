@@ -9,6 +9,8 @@ import taskRoutes from "./routes/task.js";
 import timelogRoutes from "./routes/timelog.js";
 import screenshotRoutes from "./routes/screenshot.js";
 import uploadRoutes from "./routes/upload.js";
+import adminAuthRoutes from "./routes/admin.js";
+import userAuthRoutes from "./routes/user.js";
 
 dotenv.config();
 const app = express();
@@ -22,6 +24,8 @@ app.use("/project", projectRoutes);
 app.use("/task", taskRoutes);
 app.use("/analytics", timelogRoutes);
 app.use("/screenshot", screenshotRoutes);
+app.use("/user", userAuthRoutes);
+app.use("/admin", adminAuthRoutes);
 app.use("/upload", uploadRoutes);
 app.use("/uploads", express.static("uploads"));
 
