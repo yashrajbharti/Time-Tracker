@@ -11,6 +11,8 @@ import screenshotRoutes from "./routes/screenshot.js";
 import uploadRoutes from "./routes/upload.js";
 import adminAuthRoutes from "./routes/admin.js";
 import userAuthRoutes from "./routes/user.js";
+import authRoutes from "./routes/auth.js";
+import inviteRoutes from "./routes/invite.js";
 
 dotenv.config();
 const app = express();
@@ -26,6 +28,8 @@ app.use("/analytics", timelogRoutes);
 app.use("/screenshot", screenshotRoutes);
 app.use("/user", userAuthRoutes);
 app.use("/admin", adminAuthRoutes);
+app.use("/auth", authRoutes);
+app.use("/invite", inviteRoutes);
 app.use("/upload", uploadRoutes);
 app.use("/uploads", express.static("uploads"));
 

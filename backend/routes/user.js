@@ -9,13 +9,16 @@ const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET;
 
 router.post("/login", (req, res) => {
-  const { employeeId, email } = req.body;
-  // to do: add project id to employee projects: []
+  const { employeeId, email, projectId } = req.body;
   const db = readFromDB();
 
   const employee = db.employees.find(
     (employee) => employee.id === employeeId && employee.email === email
   );
+
+  const project = db.projects.find((project) => project.id === projectId);
+
+  if (!project) return res.status(404).json({ error: "Project not found" });
 
   if (!employee)
     return res.status(401).json({ error: "Invalid employee credentials" });
@@ -24,6 +27,9 @@ router.post("/login", (req, res) => {
     employee.invited = 0;
     writeToDB(db);
   }
+
+  if (employee.projects.indexOf(projectId) === -1)
+    employee.projects.push(projectId);
 
   const token = jwt.sign({ employeeId, role: "employee" }, JWT_SECRET, {
     expiresIn: "30d",

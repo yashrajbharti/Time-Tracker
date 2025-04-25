@@ -4,7 +4,7 @@ dotenv.config();
 
 const secret = process.env.JWT_SECRET;
 
-export function auth(requiredRole = "employee") {
+export const auth = (requiredRole = "employee") => {
   return (req, res, next) => {
     const authHeader = req.headers.authorization;
 
@@ -32,4 +32,4 @@ export function auth(requiredRole = "employee") {
       return res.status(401).json({ error: "Invalid or expired token" });
     }
   };
-}
+};

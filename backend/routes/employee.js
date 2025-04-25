@@ -32,7 +32,7 @@ router.post("/", auth("admin"), (req, res) => {
     organizationId: "0",
     projects: [],
     deactivated: 0,
-    invited: timestamp,
+    invited: 0,
     createdAt: timestamp,
   };
 
