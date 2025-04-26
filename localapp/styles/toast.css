@@ -1,0 +1,22 @@
+.toast {
+    position: fixed;
+    inset-inline-start: calc(100dvw - 40px);
+    inset-block-start: calc(100dvh - 40px);
+    translate: -100% -100%;
+    padding: 10px 20px;
+    inline-size: 100%;
+    max-inline-size: 320px;
+    border-radius: 4px;
+}
+
+#warning {
+    color: var(--md-sys-color-error);
+    background-color: var(--md-sys-color-on-error);
+    border-color: var(--md-sys-color-error);
+}
+
+#success {
+    color: var(--md-sys-color-secondary);
+    background-color: var(--md-sys-color-on-secondary);
+    border-color: var(--md-sys-color-secondary);
+}

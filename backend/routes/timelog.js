@@ -76,33 +76,49 @@ router.get("/window", auth(), (req, res) => {
 });
 
 router.post("/project-time", auth(), (req, res) => {
-  const { employeeId, time, income } = req.body;
+  const { employeeId, projectId, time, income } = req.body;
 
-  if (!employeeId || time === undefined || income === undefined)
+  if (!employeeId || !projectId || time === undefined || income === undefined)
     return res.status(400).json({ error: "Missing required fields" });
 
   const db = readFromDB();
 
-  const summary = {
-    id: employeeId,
-    time,
-    costs: 0,
-    income,
-  };
+  const existingEntry = db.analytics.find(
+    (entry) => entry.id === employeeId && entry.projectId === projectId
+  );
 
-  db.analytics.push(summary);
+  if (existingEntry) {
+    existingEntry.time = time;
+    existingEntry.income = income;
+  } else {
+    const summary = {
+      id: employeeId,
+      projectId,
+      time,
+      costs: 0,
+      income,
+    };
+    db.analytics.push(summary);
+  }
+
   writeToDB(db);
 
-  res.status(201).json(summary);
+  res.status(201).json({ success: true });
 });
 
 router.get("/project-time", auth(), (req, res) => {
-  const { employeeId } = req.query;
+  const { employeeId, projectId } = req.query;
   const db = readFromDB();
 
   let entries = db.analytics;
 
-  if (employeeId) entries = entries.filter((entry) => entry.id === employeeId);
+  if (employeeId) {
+    entries = entries.filter((entry) => entry.id === employeeId);
+  }
+
+  if (projectId) {
+    entries = entries.filter((entry) => entry.projectId === projectId);
+  }
 
   res.json(entries);
 });
