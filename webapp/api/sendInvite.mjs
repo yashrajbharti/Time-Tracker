@@ -25,7 +25,7 @@ export const sendInvite = async (employeeId, projectId, email) => {
     const data = await response.json();
 
     if (!response.ok) throw new Error(data.error || "Failed to send invite");
-    showToast("Invitation sent successfully!");
+    showToast("Invitation sent successfully!", "success");
     return data;
   } catch (error) {
     console.error("Send invite failed:", error);

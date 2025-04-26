@@ -23,13 +23,15 @@ router.post("/login", (req, res) => {
   if (!employee)
     return res.status(401).json({ error: "Invalid employee credentials" });
 
-  if (employee.invited !== 0) {
-    employee.invited = 0;
-    writeToDB(db);
-  }
+  if (employee.invited !== 0) employee.invited = 0;
 
   if (employee.projects.indexOf(projectId) === -1)
     employee.projects.push(projectId);
+
+  if (project.employees.indexOf(employeeId) === -1)
+    project.employees.push(employeeId);
+
+  writeToDB(db);
 
   const token = jwt.sign({ employeeId, role: "employee" }, JWT_SECRET, {
     expiresIn: "30d",

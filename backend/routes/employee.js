@@ -31,7 +31,7 @@ router.post("/", auth("admin"), (req, res) => {
     type: "personal",
     organizationId: "0",
     projects: [],
-    deactivated: 0,
+    deactivated: timestamp,
     invited: 0,
     createdAt: timestamp,
   };

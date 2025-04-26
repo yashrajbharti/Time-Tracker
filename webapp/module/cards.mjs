@@ -39,6 +39,9 @@ export const loadEmployeeCards = async () => {
   for (const employee of employees) {
     const employeeCard = document.createElement("employee-card");
     employeeCard.setAttribute("name", employee.name);
+    employeeCard.setAttribute("link", employee.id);
+    employeeCard.setAttribute("email", employee.email);
+    employeeCard.setAttribute("deactivated", !!employee.deactivated);
 
     const projectNames = employee.projects.map((projectId) => {
       const project = projects.find((project) => project.id === projectId);
@@ -46,8 +49,6 @@ export const loadEmployeeCards = async () => {
     });
 
     employeeCard.setAttribute("projects", projectNames);
-
-    employeeCard.setAttribute("link", employee.id);
 
     fragment.appendChild(employeeCard);
   }

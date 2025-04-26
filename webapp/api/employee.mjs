@@ -3,10 +3,15 @@ import { URL } from "../utils/url.mjs";
 
 const ENDPOINT = "employee";
 
-export const getEmployee = async () => {
+export const getEmployee = async (fields = []) => {
   const token = localStorage.getItem("token");
 
-  const response = await fetch(URL + ENDPOINT, {
+  let query = "";
+  if (fields.length > 0) {
+    query = `?select=${fields.join(",")}`;
+  }
+
+  const response = await fetch(URL + ENDPOINT + query, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,

@@ -68,7 +68,7 @@ md-filled-tonal-button {
         position: relative;
         background-image: url(../assets/Space_empty_state.webp);
         block-size: 350px;
-        margin-block-start: 50px;
+        margin-block-start: 120px;
         margin-block-end: 150px;
         inline-size: 100%;
         background-size: contain;
