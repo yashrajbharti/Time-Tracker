@@ -1,0 +1,77 @@
+:root,
+:host {
+    color-scheme: light dark;
+
+    --md-sys-color-background: light-dark(#faf8ff, #11131a);
+    --md-sys-color-on-background: light-dark(#191b23, #e2e1ec);
+    --md-sys-color-surface: light-dark(#faf8ff, #11131a);
+    --md-sys-color-surface-dim: light-dark(#d9d9e4, #11131a);
+    --md-sys-color-surface-bright: light-dark(#faf8ff, #373941);
+    --md-sys-color-surface-container-lowest: light-dark(#ffffff, #0c0e15);
+    --md-sys-color-surface-container-low: light-dark(#f3f3fe, #191b23);
+    --md-sys-color-surface-container: light-dark(#ededf8, #1e1f27);
+    --md-sys-color-surface-container-high: light-dark(#e8e7f2, #282a32);
+    --md-sys-color-surface-container-highest: light-dark(#e2e1ec, #33343d);
+    --md-sys-color-on-surface: light-dark(#191b23, #e2e1ec);
+    --md-sys-color-surface-variant: light-dark(#e0e1f3, #434654);
+    --md-sys-color-on-surface-variant: light-dark(#434654, #c3c5d6);
+    --md-sys-color-inverse-surface: light-dark(#2e3038, #e2e1ec);
+    --md-sys-color-inverse-on-surface: light-dark(#f0f0fb, #2e3038);
+    --md-sys-color-outline: light-dark(#747686, #8d90a0);
+    --md-sys-color-outline-variant: light-dark(#c3c5d6, #434654);
+    --md-sys-color-shadow: #000000;
+    --md-sys-color-scrim: #000000;
+    --md-sys-color-surface-tint: light-dark(#2154d2, #b5c4ff);
+    --md-sys-color-primary: light-dark(#0044c2, #b5c4ff);
+    --md-sys-color-on-primary: light-dark(#ffffff, #00287c);
+    --md-sys-color-primary-container: #3f6bea;
+    --md-sys-color-on-primary-container: #ffffff;
+    --md-sys-color-inverse-primary: light-dark(#b5c4ff, #2154d2);
+    --md-sys-color-secondary: light-dark(#4e5c8e, #b6c4fd);
+    --md-sys-color-on-secondary: light-dark(#ffffff, #1e2e5d);
+    --md-sys-color-secondary-container: light-dark(#bfccff, #2c3b6a);
+    --md-sys-color-on-secondary-container: light-dark(#2a3968, #c3cfff);
+    --md-sys-color-tertiary: light-dark(#832190, #fdaaff);
+    --md-sys-color-on-tertiary: light-dark(#ffffff, #580063);
+    --md-sys-color-tertiary-container: #ae4bb8;
+    --md-sys-color-on-tertiary-container: #ffffff;
+    --md-sys-color-error: light-dark(#ba1a1a, #ffb4ab);
+    --md-sys-color-on-error: light-dark(#ffffff, #690005);
+    --md-sys-color-error-container: light-dark(#ffdad6, #93000a);
+    --md-sys-color-on-error-container: light-dark(#410002, #ffdad6);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype'),
+        url('../fonts/Roboto-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/Material\ Symbols.woff) format('woff');
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}

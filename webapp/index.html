@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Web App | Time Tracking Tool</title>
+    <meta name="description" content="Time tracking tool admin portal for inviting employees">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/material.css">
+    <link rel="stylesheet" href="./styles/toast.css">
+    <script type="importmap">
+        {
+              "imports": {
+                "@material/web/": "https://esm.run/@material/web/"
+              }
+            }
+          </script>
+    <script type="module">
+        import '@material/web/all.js';
+        import {
+            styles as typescaleStyles
+        } from '@material/web/typography/md-typescale-styles.js';
+        document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+    <script src="./js/script.js" type="module" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <md-tabs aria-label="Invite Employees via mail">
+                <md-primary-tab aria-label="Invite">
+                    <md-icon slot="icon">rocket_launch</md-icon>
+                    <p>Invite</p>
+                </md-primary-tab>
+                <md-primary-tab aria-label="Manage Employees">
+                    <md-icon slot="icon">badge</md-icon>
+                    <p>Employee</p>
+                </md-primary-tab>
+                <md-primary-tab aria-label="Manage Project">
+                    <md-icon slot="icon">assignment</md-icon>
+                    <p>Project</p>
+                </md-primary-tab>
+            </md-tabs>
+        </nav>
+    </header>
+    <main>
+        <section id="invite">
+            <h1>Admin's Portal <span class="rocket" aria-hidden="true">🚀</span></h1>
+            <form>
+                <fieldset>
+                    <legend>
+                        <h2>Invite Employees via email to a Project</h2>
+                    </legend>
+                    <div>
+                        <label for="projectName">Project Name</label>
+                        <md-outlined-select id="projectName" required="true">
+                            <md-select-option aria-label="blank"></md-select-option>
+                            <md-select-option selected value="apple">
+                                <div slot="headline">Apple</div>
+                            </md-select-option>
+                            <md-select-option value="apricot">
+                                <div slot="headline">Apricot</div>
+                            </md-select-option>
+                        </md-outlined-select>
+                    </div>
+                    <div>
+                        <md-outlined-text-field label="Employee Email" value="" type="textarea" rows="6" required="true"
+                            supporting-text="Enter one or more email addresses, separated by commas (e.g., user@example.com, another@example.com)">
+                        </md-outlined-text-field>
+                    </div>
+                    <md-filled-tonal-button>
+                        Send Invite
+                        <svg slot="icon" viewBox="0 0 48 48">
+                            <path d="M6 40V8l38 16Zm3-4.65L36.2 24 9 12.5v8.4L21.1 24 9 27Zm0 0V12.5 27Z" />
+                        </svg>
+                    </md-filled-tonal-button>
+                </fieldset>
+            </form>
+        </section>
+        <section id="employee" hidden>E</section>
+        <section id="project" hidden>P</section>
+    </main>
+</body>
+
+</html>

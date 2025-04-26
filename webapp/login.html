@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login Page | Time Tracking Tool</title>
+    <meta name="description" content="Time tracking tool admin portal for inviting employees">
+    <link rel="stylesheet" href="./styles/login.css">
+    <link rel="stylesheet" href="./styles/material.css">
+    <link rel="stylesheet" href="./styles/toast.css">
+    <script type="importmap">
+        {
+              "imports": {
+                "@material/web/": "https://esm.run/@material/web/"
+              }
+            }
+          </script>
+    <script type="module">
+        import '@material/web/all.js';
+        import {
+            styles as typescaleStyles
+        } from '@material/web/typography/md-typescale-styles.js';
+        document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+    <script src="./js/login.js" defer type="module"></script>
+</head>
+
+<body>
+    <main>
+        <p class="error" hidden>Authenticate as Admin to continue</p>
+        <form aria-labelledby="login">
+            <h1 id="login">Continue as Admin</h1>
+            <md-outlined-text-field label="Email" type="email" autocomplete="email" id="email">
+            </md-outlined-text-field>
+            <md-outlined-text-field label="Password" type="password" autocomplete="password" id="password">
+                <md-icon-button toggle slot="trailing-icon" type="button">
+                    <md-icon>visibility</md-icon>
+                    <md-icon slot="selected">visibility_off</md-icon>
+                </md-icon-button>
+            </md-outlined-text-field>
+            <md-filled-button>Login</md-filled-button>
+        </form>
+    </main>
+</body>
+
+</html>

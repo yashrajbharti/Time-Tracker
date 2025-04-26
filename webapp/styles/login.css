@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    background-color: var(--md-sys-color-background);
+    max-inline-size: 1280px;
+    margin-inline: auto;
+    font-family: "Roboto", sans-serif;
+    block-size: 100dvh;
+}
+
+h1 {
+    text-align: center;
+}
+
+main {
+    padding: 50px;
+}
+
+form {
+    margin-block-start: 50px;
+    display: flex;
+    flex-direction: column;
+    max-inline-size: 500px;
+    inline-size: 100%;
+    margin-inline: auto;
+    gap: 30px;
+    padding: 30px;
+    background-color: var(--md-sys-color-surface-container);
+    border-radius: 20px;
+}
+
+p.error {
+    color: var(--md-sys-color-error);
+    background-color: var(--md-sys-color-on-error);
+    max-inline-size: 500px;
+    inline-size: 100%;
+    margin-inline: auto;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
