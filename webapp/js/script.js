@@ -1,4 +1,7 @@
 import { isAuthenticated } from "../api/isAuthenticated.mjs";
+import { loadEmployeeCards, loadProjectCards } from "../module/cards.mjs";
+import { EmployeeCard } from "../module/employee-card.mjs";
+import { ProjectCard } from "../module/project-card.mjs";
 import {
   getSelectedTabOnLoad,
   syncHashWithTabsChange,
@@ -12,3 +15,9 @@ import {
 
 getSelectedTabOnLoad();
 syncHashWithTabsChange();
+
+customElements.define("project-card", ProjectCard);
+customElements.define("employee-card", EmployeeCard);
+
+loadProjectCards();
+loadEmployeeCards();
