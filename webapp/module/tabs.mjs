@@ -19,6 +19,7 @@ export const getSelectedTabOnLoad = () => {
     default:
       tabs[0].selected = true;
   }
+  updateVisibleSection();
 };
 
 export const syncHashWithTabsChange = () => {
@@ -38,5 +39,19 @@ export const syncHashWithTabsChange = () => {
       default:
         return;
     }
+    updateVisibleSection();
+  });
+};
+
+const updateVisibleSection = () => {
+  const hash = window.location.hash || "#invite";
+  const sectionIds = ["invite", "employee", "project"];
+
+  sectionIds.forEach((id) => {
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    if (`#${id}` === hash) section.hidden = false;
+    else section.hidden = true;
   });
 };

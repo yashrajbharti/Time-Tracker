@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="./styles/toast.css">
     <script type="importmap">
         {
-              "imports": {
+            "imports": {
                 "@material/web/": "https://esm.run/@material/web/"
-              }
             }
-          </script>
+        }
+    </script>
     <script type="module">
         import '@material/web/all.js';
         import {
@@ -34,7 +34,7 @@
             <md-outlined-text-field label="Email" type="email" autocomplete="email" id="email">
             </md-outlined-text-field>
             <md-outlined-text-field label="Password" type="password" autocomplete="password" id="password">
-                <md-icon-button toggle slot="trailing-icon" type="button">
+                <md-icon-button toggle slot="trailing-icon" type="button" aria-label="toggle password">
                     <md-icon>visibility</md-icon>
                     <md-icon slot="selected">visibility_off</md-icon>
                 </md-icon-button>

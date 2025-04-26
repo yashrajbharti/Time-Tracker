@@ -49,10 +49,10 @@ fieldset {
             resize: vertical;
         }
     }
+}
 
-    &>md-filled-tonal-button {
-        inline-size: 100%;
-        padding-block: 15px;
-        margin-block: 20px;
-    }
+md-filled-tonal-button {
+    inline-size: 100%;
+    padding-block: 15px;
+    margin-block: 20px;
 }

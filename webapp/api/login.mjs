@@ -1,6 +1,6 @@
 import { showToast } from "../utils/toast.mjs";
 import { URL } from "../utils/url.mjs";
-export const ENDPOINT = "admin/login";
+const ENDPOINT = "admin/login";
 
 export const adminLogin = async (email, password) => {
   try {

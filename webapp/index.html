@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="./styles/toast.css">
     <script type="importmap">
         {
-              "imports": {
+            "imports": {
                 "@material/web/": "https://esm.run/@material/web/"
-              }
             }
-          </script>
+        }
+    </script>
     <script type="module">
         import '@material/web/all.js';
         import {
@@ -55,8 +55,7 @@
                     </legend>
                     <div>
                         <label for="projectName">Project Name</label>
-                        <md-outlined-select id="projectName" required="true">
-                            <md-select-option aria-label="blank"></md-select-option>
+                        <md-outlined-select id="projectName" required="true" aria-label="project">
                             <md-select-option selected value="apple">
                                 <div slot="headline">Apple</div>
                             </md-select-option>
@@ -79,8 +78,14 @@
                 </fieldset>
             </form>
         </section>
-        <section id="employee" hidden>E</section>
-        <section id="project" hidden>P</section>
+        <section id="employee" hidden>
+            <md-filled-tonal-button href="./pages/employee.html">Add New Employee</md-filled-tonal-button>
+
+        </section>
+        <section id="project" hidden>
+            <md-filled-tonal-button href="./pages/project.html">Create New Project</md-filled-tonal-button>
+
+        </section>
     </main>
 </body>
 

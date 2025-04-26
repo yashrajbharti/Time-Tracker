@@ -58,6 +58,7 @@ router.get("/", auth(), (_, res) => {
   res.json(db.projects);
 });
 
+// todo: more robustness to PUT projects where employees cannot be edited in without sending invitation. However removal should be possible as is.
 router.put("/:id", auth("admin"), (req, res) => {
   const { id } = req.params;
   const { name, description, employees } = req.body;
