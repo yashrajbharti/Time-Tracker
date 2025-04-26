@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create New Project | Time Tracking Tool</title>
+    <title>Add New Employee | Time Tracking Tool</title>
     <meta name="description" content="Time tracking tool admin portal for inviting employees">
+    <link rel="stylesheet" href="../styles/pages.css">
     <link rel="stylesheet" href="../styles/material.css">
     <link rel="stylesheet" href="../styles/toast.css">
     <script type="importmap">
@@ -26,8 +27,21 @@
 </head>
 
 <body>
+    <header>
+        <md-icon-button aria-label="Back to Employee List" href="../index.html#employee">
+            <md-icon>arrow_back</md-icon>
+        </md-icon-button>
+        <md-ripple></md-ripple>
+    </header>
     <main>
-
+        <form aria-labelledby="new-employee" id="employee">
+            <h1 id="new-employee">Add a New Employee</h1>
+            <md-outlined-text-field label="Name" type="text" id="name" required="true">
+            </md-outlined-text-field>
+            <md-outlined-text-field label="Email" type="email" autocomplete="email" id="email" required="true">
+            </md-outlined-text-field>
+            <md-filled-button>Create</md-filled-button>
+        </form>
     </main>
 </body>
 

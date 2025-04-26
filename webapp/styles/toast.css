@@ -14,3 +14,9 @@
     background-color: var(--md-sys-color-on-error);
     border-color: var(--md-sys-color-error);
 }
+
+#success {
+    color: var(--md-sys-color-secondary);
+    background-color: var(--md-sys-color-on-secondary);
+    border-color: var(--md-sys-color-secondary);
+}

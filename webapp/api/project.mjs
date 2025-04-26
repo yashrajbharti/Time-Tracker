@@ -1,3 +1,4 @@
+import { showToast } from "../utils/toast.mjs";
 import { URL } from "../utils/url.mjs";
 
 const ENDPOINT = "project";
@@ -39,13 +40,13 @@ export const createNewProject = async (name, description, employees = []) => {
 
     const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error(data.error || "Failed to create project");
-    }
+    if (!response.ok) throw new Error(data.error || "Failed to create project");
 
+    showToast("Successfully added Project!", "success");
     return data;
   } catch (error) {
     console.error("Failed to create project", error);
+    showToast("Failed to create project, please try again!");
     throw error;
   }
 };

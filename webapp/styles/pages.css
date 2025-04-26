@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    background-color: var(--md-sys-color-background);
+    max-inline-size: 1280px;
+    margin-inline: auto;
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    position: fixed;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    display: block;
+    padding: 20px;
+    inline-size: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 100px;
+    gap: 20px;
+    inline-size: 100%;
+    max-inline-size: 900px;
+    margin-inline: auto;
+    padding: 20px;
+}
+
+md-outlined-text-field {
+    resize: vertical;
+}
+
+md-filled-button {
+    inline-size: 100%;
+    padding-block: 15px;
+    margin-block: 20px;
+}

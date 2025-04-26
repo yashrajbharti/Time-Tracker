@@ -1,3 +1,4 @@
+import { showToast } from "../utils/toast.mjs";
 import { URL } from "../utils/url.mjs";
 
 const ENDPOINT = "task";
@@ -12,9 +13,7 @@ export const getTasks = async () => {
     },
   });
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch tasks");
-  }
+  if (!response.ok) throw new Error("Failed to fetch tasks");
 
   const tasks = await response.json();
   return tasks;
@@ -28,9 +27,7 @@ export const createNewTask = async (
 ) => {
   const token = localStorage.getItem("token");
 
-  if (!token) {
-    throw new Error("Unauthorized: Admin token missing");
-  }
+  if (!token) throw new Error("Unauthorized: Admin token missing");
 
   try {
     const response = await fetch(URL + ENDPOINT, {
@@ -49,13 +46,12 @@ export const createNewTask = async (
 
     const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error(data.error || "Failed to create task");
-    }
+    if (!response.ok) throw new Error(data.error || "Failed to create task");
 
     return data;
   } catch (error) {
     console.error("Failed to create task", error);
+    showToast("Failed to create Task, please try again!");
     throw error;
   }
 };
