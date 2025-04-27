@@ -14,19 +14,13 @@ router.post("/", auth(), (req, res) => {
     timestamp,
     permissionGranted,
     fingerprint,
+    ipAddress,
   } = req.body;
 
   if (!employeeId || !projectId || !link || !timestamp)
     return res.status(400).json({ error: "Missing required fields" });
 
-  if (req.user.role === "employee" && req.user.employeeId !== employeeId) {
-    return res
-      .status(403)
-      .json({ error: "Employees can only upload their own screenshots" });
-  }
-
   const db = readFromDB();
-  const ipAddress = req.headers["x-forwarded-for"];
 
   const newScreenshot = {
     id: nanoid(16),

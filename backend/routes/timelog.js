@@ -7,15 +7,22 @@ const router = express.Router();
 
 // We added fingerprint and ip address here
 router.post("/window", auth(), (req, res) => {
-  const { employeeId, projectId, taskId, start, end, duration, fingerprint } =
-    req.body;
+  const {
+    employeeId,
+    projectId,
+    taskId,
+    start,
+    end,
+    duration,
+    fingerprint,
+    ipAddress,
+  } = req.body;
 
   if (!employeeId || !projectId || !taskId || !start || !end || !duration)
     return res.status(400).json({ error: "Missing required fields" });
 
   const db = readFromDB();
   const now = new Date().toISOString();
-  const ipAddress = req.headers["x-forwarded-for"];
 
   const newLog = {
     id: nanoid(16),
