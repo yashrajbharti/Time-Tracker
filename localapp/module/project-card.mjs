@@ -1,3 +1,4 @@
+import { handleScreenshot } from "../handlers/handleScreenshot.mjs";
 import { handleTimelog } from "../handlers/handleTimelog.mjs";
 import { handleWindowLogs } from "../handlers/handleWindowLogs.mjs";
 
@@ -126,14 +127,15 @@ export class ProjectCard extends HTMLElement {
     this.saveInterval = setInterval(() => {
       const startTime = parseInt(localStorage.getItem(`timer-${projectId}`));
       localStorage.setItem(`timer-${projectId}`, this.elapsedTime.toString());
-      handleTimelog(employeeId, projectId, this.elapsedTime);
+      handleTimelog(employeeId, projectId, this.elapsedTime * 1000);
       handleWindowLogs(
         employeeId,
         projectId,
         taskId,
-        startTime,
-        this.elapsedTime
+        startTime * 1000,
+        this.elapsedTime * 1000
       );
+      handleScreenshot(employeeId, projectId, taskId);
     }, FIVE_MINUTES);
   }
 
@@ -146,7 +148,7 @@ export class ProjectCard extends HTMLElement {
     clearInterval(this.saveInterval);
 
     localStorage.setItem(`timer-${projectId}`, this.elapsedTime.toString());
-    handleTimelog(employeeId, projectId, this.elapsedTime);
+    handleTimelog(employeeId, projectId, this.elapsedTime * 1000);
     this.button.selected = false;
   }
 

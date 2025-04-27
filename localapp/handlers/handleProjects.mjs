@@ -13,7 +13,7 @@ export const handleProjects = async (projects, employeeId) => {
     const taskId = tasks.find((task) => task.projectId === id)?.id;
 
     if (timelog && timelog[0] && timelog[0].time)
-      localStorage.setItem(`timer-${id}`, timelog[0].time.toString());
+      localStorage.setItem(`timer-${id}`, (timelog[0].time / 1000).toString());
 
     const projectCard = document.createElement("project-card");
     projectCard.setAttribute("title", project.name);
