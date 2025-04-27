@@ -7,8 +7,6 @@ export const handleProjects = async (projects) => {
     const project = await getProjectById(id);
     const projectCard = document.createElement("project-card");
     projectCard.setAttribute("title", project.name);
-    projectCard.setAttribute("description", project.description);
-
     fragment.appendChild(projectCard);
   }
 

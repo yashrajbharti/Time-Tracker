@@ -166,7 +166,9 @@
       "id": "ZWt8H_iqIW-gtlO9",
       "name": "OAI",
       "description": "The is a super confidential project from a leading AI lab",
-      "employees": [],
+      "employees": [
+        "5xxCxksLZYQl2AN2"
+      ],
       "projectId": "495ZPHSkvhkUO2iN",
       "status": "To Do",
       "priority": "low",

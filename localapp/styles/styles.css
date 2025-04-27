@@ -15,10 +15,28 @@ body {
 h1 {
     text-align: start;
     font-size: clamp(1.5rem, -0.2625rem + 5vw, 2.5rem);
-    max-inline-size: 900px;
-    margin-inline: auto;
 }
 
 main {
     padding: 50px;
+    max-inline-size: 900px;
+    margin-inline: auto;
+}
+
+p {
+    display: flex;
+    position: relative;
+    color: var(--md-sys-color-on-secondary-container);
+    align-items: center;
+    gap: 5px;
+    margin-block: 10px;
+    background-color: var(--md-sys-color-secondary-container);
+    border-radius: 20px;
+    padding-inline-end: 15px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }

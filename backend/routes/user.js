@@ -32,6 +32,14 @@ router.post("/login", (req, res) => {
   if (project.employees.indexOf(employeeId) === -1)
     project.employees.push(employeeId);
 
+  db.tasks.forEach((task) => {
+    if (task.projectId === projectId) {
+      if (task.employees.indexOf(employeeId) === -1) {
+        task.employees.push(employeeId);
+      }
+    }
+  });
+
   writeToDB(db);
 
   const token = jwt.sign({ employeeId, role: "employee" }, JWT_SECRET, {

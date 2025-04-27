@@ -22,17 +22,12 @@ export class ProjectCard extends HTMLElement {
                 border-radius: 20px;
                 & > h2 {
                   inline-size: 100%;
-                }
-                & > p {
-                  inline-size: 100%;
+                  color: var(--md-sys-color-on-secondary-container);
                 }
             }
         </style>
         <article>
             <h2>${this.getAttribute("title") || "Untitled Project"}</h2>
-            <p>${
-              this.getAttribute("description") || "No description provided."
-            }</p>
             <md-ripple></md-ripple>
         </article>
       `;
