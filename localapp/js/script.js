@@ -1,5 +1,6 @@
 import { isAuthenticated } from "../api/isAuthenticated.mjs";
 import { handleEmployee } from "../handlers/handleEmployee.mjs";
+import { ProjectCard } from "../module/project-card.mjs";
 
 (async function () {
   const user = await isAuthenticated();
@@ -8,3 +9,5 @@ import { handleEmployee } from "../handlers/handleEmployee.mjs";
 })();
 
 handleEmployee();
+
+customElements.define("project-card", ProjectCard);

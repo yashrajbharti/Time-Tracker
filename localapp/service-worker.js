@@ -31,6 +31,8 @@ const urlsToCache = [
   "./fonts/Roboto-Bold.ttf",
   "./handlers/handleEmployee.mjs",
   "./handlers/handleLogin.mjs",
+  "./handlers/handleProjects.mjs",
+  "./module/project-card.mjs",
 ];
 
 self.addEventListener("install", (event) => {
