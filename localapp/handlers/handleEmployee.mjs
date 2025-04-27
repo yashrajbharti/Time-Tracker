@@ -9,5 +9,5 @@ export const handleEmployee = async () => {
     .split(" ", 1)
     .join("")}!`;
 
-  await handleProjects(employee.projects);
+  await handleProjects(employee.projects, employeeId);
 };

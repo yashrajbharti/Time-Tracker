@@ -54,6 +54,13 @@ html {
 }
 
 @font-face {
+    font-family: 'Time';
+    src: url('../fonts/DS-DIGI.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Material Symbols Outlined';
     font-style: normal;
     font-weight: 400;
