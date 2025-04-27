@@ -24,6 +24,7 @@ router.post("/login", (req, res) => {
     return res.status(401).json({ error: "Invalid employee credentials" });
 
   if (employee.invited !== 0) employee.invited = 0;
+  if (employee.deactivated !== 0) employee.deactivated = 0;
 
   if (employee.projects.indexOf(projectId) === -1)
     employee.projects.push(projectId);

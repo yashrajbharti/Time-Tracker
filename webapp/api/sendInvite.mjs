@@ -5,6 +5,7 @@ const ENDPOINT = "invite/send";
 
 export const sendInvite = async (employeeId, projectId, email) => {
   const token = localStorage.getItem("token");
+  showToast("Sending Invite...", "success");
 
   if (!token) throw new Error("Unauthorized: Admin token missing");
 

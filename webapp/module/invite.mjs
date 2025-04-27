@@ -16,7 +16,7 @@ export const inviteEmployeesToProject = async () => {
     const emails = document
       .getElementById("emails")
       .value.split(",")
-      .map((email) => email.trim());
+      .map((email) => email.toLowerCase().trim());
 
     const projectId = projectMap.get(projectName);
     const employeeIds = await getEmployeeIds(emails);

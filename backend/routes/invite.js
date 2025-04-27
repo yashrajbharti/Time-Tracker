@@ -25,7 +25,7 @@ router.post("/send", auth("admin"), async (req, res) => {
     return res.status(400).json({ error: "Missing fields" });
   }
 
-  const inviteLink = `${FRONTEND_URL}/accept?employeeId=${employeeId}&projectId=${projectId}&email=${encodeURIComponent(
+  const inviteLink = `${FRONTEND_URL}/login.html?employeeId=${employeeId}&projectId=${projectId}&email=${encodeURIComponent(
     email
   )}`;
 
