@@ -4,9 +4,7 @@ const ENDPOINT = "project";
 export const getProjectById = async (id) => {
   const token = localStorage.getItem("token");
 
-  if (!token) {
-    throw new Error("Unauthorized: No token found");
-  }
+  if (!token) throw new Error("Unauthorized: No token found");
 
   try {
     const response = await fetch(`${URL}${ENDPOINT}/${id}`, {
@@ -18,9 +16,7 @@ export const getProjectById = async (id) => {
 
     const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error(data.error || "Failed to fetch project");
-    }
+    if (!response.ok) throw new Error(data.error || "Failed to fetch project");
 
     return data;
   } catch (error) {

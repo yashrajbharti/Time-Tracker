@@ -11,9 +11,7 @@ export const postScreenshotMetadata = async ({
 }) => {
   const token = localStorage.getItem("token");
 
-  if (!token) {
-    throw new Error("Unauthorized: No token found");
-  }
+  if (!token) throw new Error("Unauthorized: No token found");
 
   try {
     const response = await fetch(URL + ENDPOINT, {
@@ -35,9 +33,8 @@ export const postScreenshotMetadata = async ({
 
     const data = await response.json();
 
-    if (!response.ok) {
+    if (!response.ok)
       throw new Error(data.error || "Failed to log screenshot metadata");
-    }
 
     return data;
   } catch (error) {

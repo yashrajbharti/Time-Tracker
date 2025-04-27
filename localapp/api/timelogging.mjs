@@ -9,9 +9,7 @@ export const updateProjectTime = async (
 ) => {
   const token = localStorage.getItem("token");
 
-  if (!token) {
-    throw new Error("Unauthorized: No token found");
-  }
+  if (!token) throw new Error("Unauthorized: No token found");
 
   try {
     const response = await fetch(URL + ENDPOINT, {
@@ -30,9 +28,8 @@ export const updateProjectTime = async (
 
     const data = await response.json();
 
-    if (!response.ok) {
+    if (!response.ok)
       throw new Error(data.error || "Failed to create or update project-time");
-    }
 
     return data;
   } catch (error) {
@@ -45,9 +42,7 @@ export const updateProjectTime = async (
 export const getProjectTime = async (employeeId = null, projectId = null) => {
   const token = localStorage.getItem("token");
 
-  if (!token) {
-    throw new Error("Unauthorized: No token found");
-  }
+  if (!token) throw new Error("Unauthorized: No token found");
 
   let query = "";
 
@@ -68,9 +63,8 @@ export const getProjectTime = async (employeeId = null, projectId = null) => {
 
     const data = await response.json();
 
-    if (!response.ok) {
+    if (!response.ok)
       throw new Error(data.error || "Failed to fetch project-time data");
-    }
 
     return data;
   } catch (error) {
