@@ -6,7 +6,7 @@ import { getIPAddress } from "../utils/ipAddress.mjs";
 let mediaStream = null;
 
 export const handleScreenshot = async (employeeId, projectId, taskId) => {
-  let link = null;
+  let link = "";
   let permissionGranted = false;
 
   try {
@@ -40,17 +40,6 @@ export const handleScreenshot = async (employeeId, projectId, taskId) => {
     const timestamp = Date.now();
     const fingerprint = await getFingerprint();
     const ipAddress = await getIPAddress();
-
-    console.log({
-      employeeId,
-      projectId,
-      taskId,
-      link,
-      timestamp,
-      permissionGranted,
-      fingerprint,
-      ipAddress,
-    });
 
     await postScreenshotMetadata({
       employeeId,
