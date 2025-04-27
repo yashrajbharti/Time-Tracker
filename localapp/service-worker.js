@@ -33,6 +33,7 @@ const urlsToCache = [
   "./handlers/handleLogin.mjs",
   "./handlers/handleProjects.mjs",
   "./module/project-card.mjs",
+  "./module/install-guide.mjs",
 ];
 
 self.addEventListener("install", (event) => {

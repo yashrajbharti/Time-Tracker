@@ -26,7 +26,7 @@ export class ProjectCard extends HTMLElement {
                 }
             }
         </style>
-        <article>
+        <article data-project="${this.getAttribute("id")}">
             <h2>${this.getAttribute("title") || "Untitled Project"}</h2>
             <md-ripple></md-ripple>
         </article>

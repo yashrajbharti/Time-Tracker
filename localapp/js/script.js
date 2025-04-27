@@ -1,5 +1,6 @@
 import { isAuthenticated } from "../api/isAuthenticated.mjs";
 import { handleEmployee } from "../handlers/handleEmployee.mjs";
+import { InstallGuide } from "../module/install-guide.mjs";
 import { ProjectCard } from "../module/project-card.mjs";
 import { updateLastSynced } from "../utils/updateLastSynced.mjs";
 
@@ -12,5 +13,6 @@ import { updateLastSynced } from "../utils/updateLastSynced.mjs";
 handleEmployee();
 
 customElements.define("project-card", ProjectCard);
+customElements.define("install-guide", InstallGuide);
 
 updateLastSynced();
