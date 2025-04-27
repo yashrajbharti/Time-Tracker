@@ -188,7 +188,9 @@
       "id": "S4Zv24H60qBvcEOf",
       "name": "Deepmind",
       "description": "This is a super creative project from Google and Alphabet",
-      "employees": [],
+      "employees": [
+        "5xxCxksLZYQl2AN2"
+      ],
       "projectId": "JeImz9bA0yttjTCP",
       "status": "To Do",
       "priority": "low",
@@ -853,46 +855,18 @@
   ],
   "analytics": [
     {
-      "id": "wauimd1z_j0sbgy",
-      "time": 40291000,
-      "costs": 0,
-      "income": 134.30333333333334
-    },
-    {
-      "id": "wcl6pilk_f89fzo",
-      "time": 24617000,
-      "costs": 0,
-      "income": 88.89472222222221
-    },
-    {
-      "id": "wadpaqg3e2fq_5g",
-      "time": 4772000,
-      "costs": 31.813333333333333,
-      "income": 31.813333333333333
-    },
-    {
-      "id": "wydpuyccgqka88b",
-      "time": 255000,
+      "id": "5xxCxksLZYQl2AN2",
+      "projectId": "495ZPHSkvhkUO2iN",
+      "time": 95,
       "costs": 0,
       "income": 0
     },
     {
-      "id": "wix96xlsdsfyclg",
-      "time": 2000,
+      "id": "5xxCxksLZYQl2AN2",
+      "projectId": "JeImz9bA0yttjTCP",
+      "time": 47,
       "costs": 0,
       "income": 0
-    },
-    {
-      "id": "wsugiy4hyd2b1jw",
-      "time": 107000,
-      "costs": 0,
-      "income": 0.2972222222222222
-    },
-    {
-      "id": "wvd5ss11lynlupi",
-      "time": 11863000,
-      "costs": 32.952777777777776,
-      "income": 46.13388888888889
     }
   ],
   "screenshots": []
