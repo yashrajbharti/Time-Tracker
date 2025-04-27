@@ -11,3 +11,12 @@ body {
     margin-inline: auto;
     font-family: "Roboto", sans-serif;
 }
+
+h1 {
+    text-align: start;
+    font-size: clamp(1.5rem, -0.2625rem + 5vw, 2.5rem);
+}
+
+main {
+    padding: 50px;
+}

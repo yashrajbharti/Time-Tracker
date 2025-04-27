@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./styles/login.css">
     <link rel="stylesheet" href="./styles/material.css">
     <link rel="stylesheet" href="./styles/toast.css">
+    <link rel="shortcut icon" href="./icons/mercury.svg" type="image/x-icon">
+    <meta name="theme-color" content="#3f6bea">
     <script type="importmap">
         {
             "imports": {
@@ -23,12 +25,29 @@
         } from '@material/web/typography/md-typescale-styles.js';
         document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
     </script>
+    <script type="module" src="./js/login.js" defer></script>
 </head>
 
 <body>
     <main>
-        <form>
+        <p class="error" hidden>
+            Session expired or invalid.
+            Please reopen the invitation link from your email to continue as an employee.
+        </p>
 
+        <form aria-labelledby="login">
+            <img src="./icons/mercury.svg" alt="Mercury" height="120px">
+            <h1 id="login">Accept Your Invitation</h1>
+
+            <p class="info">
+                You've been invited by Mercor to join a project-based contract position.
+                Accept your invitation to access Mercury, our very own time-tracking platform.
+            </p>
+
+            <md-outlined-text-field label="Email" type="email" autocomplete="email" id="email">
+            </md-outlined-text-field>
+
+            <md-filled-button>Accept and Continue</md-filled-button>
         </form>
     </main>
 </body>

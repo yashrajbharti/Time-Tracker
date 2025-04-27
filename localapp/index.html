@@ -8,6 +8,9 @@
     <meta name="description" content="Time Tracking tool for employees helping enhance productivity">
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/material.css">
+    <link rel="shortcut icon" href="./icons/mercury.svg" type="image/x-icon">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#3f6bea">
     <script type="importmap">
         {
             "imports": {
@@ -22,10 +25,24 @@
         } from '@material/web/typography/md-typescale-styles.js';
         document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
     </script>
+    <script src="./js/script.js" type="module" defer></script>
 </head>
 
 <body>
+    <main>
+        <h1>Hey Contractor!</h1>
 
+    </main>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("./service-worker.js")
+                    .then(reg => console.log("Service Worker registered:", reg))
+                    .catch(err => console.log("Service Worker registration failed:", err));
+            });
+        }
+    </script>
 </body>
 
 </html>
