@@ -6,7 +6,7 @@ import { createNewTask } from "../api/task.mjs";
 (async function () {
   const user = await isAuthenticated();
 
-  if (!user) window.location.href = "/login.html?redirect=true";
+  if (!user) window.location.href = "./login.html?redirect=true";
 })();
 
 const form = document.querySelector("form");
