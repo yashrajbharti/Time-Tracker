@@ -23,20 +23,91 @@ main {
     margin-inline: auto;
 }
 
-p {
-    display: flex;
-    position: relative;
-    color: var(--md-sys-color-on-secondary-container);
-    align-items: center;
-    gap: 5px;
-    margin-block: 10px;
-    background-color: var(--md-sys-color-secondary-container);
-    border-radius: 20px;
-    padding-inline-end: 15px;
-}
-
 .info {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+
+    &>p {
+        display: flex;
+        position: relative;
+        color: var(--md-sys-color-on-secondary-container);
+        align-items: center;
+        gap: 5px;
+        margin-block: 10px;
+        background-color: var(--md-sys-color-secondary-container);
+        border-radius: 20px;
+        padding-inline-end: 15px;
+    }
+
+}
+
+
+#install-guide {
+    display: none;
+}
+
+/* @media screen and not (display-mode: standalone) {
+
+    .info,
+    .projects {
+        display: none;
+    }
+}
+
+
+@media screen and (display-mode: standalone) {
+    #install-guide {
+        display: none;
+    }
+} */
+
+#install-guide {
+    &>h2 {
+        font-size: clamp(2rem, 1.8333rem + 0.8333vw, 2.5rem);
+        margin-block: 30px;
+    }
+
+    &>ul {
+        line-height: 2;
+        padding-inline-start: 12px;
+
+        &>li {
+            &>p {
+                display: flex;
+                margin-block: 24px;
+                flex-wrap: wrap;
+                font-size: 1.2rem;
+                gap: 5px;
+
+                & .chip {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    background-color: var(--md-sys-color-surface-container-highest);
+                    padding-inline-end: 20px;
+                    border-radius: 24px;
+
+                    &>img {
+                        padding-inline-start: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    &>p {
+        padding: 12px;
+        max-inline-size: max-content;
+        color: var(--md-sys-color-on-secondary-container);
+        align-items: center;
+        gap: 5px;
+        border-radius: 4px;
+        margin-block: 10px;
+        margin-block-start: 50px;
+        background-color: var(--md-sys-color-secondary-container);
+        border-inline-start: 3px solid var(--md-sys-color-primary);
+    }
+
 }
