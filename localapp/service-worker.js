@@ -2,7 +2,6 @@ const CACHE_NAME = "mercury-pwa-cache-v1";
 const urlsToCache = [
   "./index.html",
   "./login.html",
-  "./url.py",
   "./manifest.json",
   "./service-worker.js",
   "./lib/fingerprint.js",
