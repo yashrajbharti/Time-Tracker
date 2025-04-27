@@ -1,4 +1,7 @@
-import { handleScreenshot } from "../handlers/handleScreenshot.mjs";
+import {
+  handleScreenshot,
+  stopScreenCapture,
+} from "../handlers/handleScreenshot.mjs";
 import { handleTimelog } from "../handlers/handleTimelog.mjs";
 import { handleWindowLogs } from "../handlers/handleWindowLogs.mjs";
 
@@ -124,6 +127,8 @@ export class ProjectCard extends HTMLElement {
 
     const FIVE_MINUTES = 5 * 60 * 1000;
 
+    handleScreenshot(employeeId, projectId, taskId);
+
     this.saveInterval = setInterval(() => {
       const startTime = parseInt(localStorage.getItem(`timer-${projectId}`));
       localStorage.setItem(`timer-${projectId}`, this.elapsedTime.toString());
@@ -150,6 +155,8 @@ export class ProjectCard extends HTMLElement {
     localStorage.setItem(`timer-${projectId}`, this.elapsedTime.toString());
     handleTimelog(employeeId, projectId, this.elapsedTime * 1000);
     this.button.selected = false;
+
+    stopScreenCapture();
   }
 
   updateTimeDisplay() {

@@ -1,4 +1,4 @@
-import { URL } from "../utils/url.mjs"; // your base URL
+import { URL } from "../utils/url.mjs";
 const ENDPOINT = "analytics/window";
 
 export const postWindowLog = async (
@@ -8,7 +8,8 @@ export const postWindowLog = async (
   start,
   end,
   duration,
-  fingerprint
+  fingerprint,
+  ipAddress
 ) => {
   const token = localStorage.getItem("token");
 
@@ -29,6 +30,7 @@ export const postWindowLog = async (
         end,
         duration,
         fingerprint,
+        ipAddress,
       }),
     });
 

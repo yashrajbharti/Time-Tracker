@@ -10,6 +10,7 @@ const urlsToCache = [
   "./js/login.js",
   "./utils/calculateIncome.mjs",
   "./utils/getQuery.mjs",
+  "./utils/ipAddress.mjs",
   "./utils/url.mjs",
   "./utils/toast.mjs",
   "./utils/updateLastSynced.mjs",

@@ -14,7 +14,7 @@ body {
 
 h1 {
     text-align: start;
-    font-size: clamp(1.5rem, -0.2625rem + 5vw, 2.5rem);
+    font-size: clamp(1.8rem, -0.2625rem + 5vw, 2.5rem);
 }
 
 main {
@@ -26,7 +26,8 @@ main {
 .info {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
+    flex-wrap: wrap;
 
     &>p {
         display: flex;
@@ -42,15 +43,10 @@ main {
 
 }
 
-
-install-guide {
-    display: none;
-}
-
-/* @media screen and not (display-mode: standalone) {
+@media screen and not (display-mode: standalone) {
 
     .info,
     .projects {
         display: none;
     }
-} */
+}

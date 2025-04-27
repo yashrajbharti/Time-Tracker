@@ -1,3 +1,5 @@
+import { URL } from "../utils/url.mjs";
+
 const ENDPOINT = "screenshot";
 
 export const postScreenshotMetadata = async ({
@@ -8,6 +10,7 @@ export const postScreenshotMetadata = async ({
   timestamp,
   permissionGranted,
   fingerprint,
+  ipAddress,
 }) => {
   const token = localStorage.getItem("token");
 
@@ -28,6 +31,7 @@ export const postScreenshotMetadata = async ({
         timestamp,
         permissionGranted,
         fingerprint,
+        ipAddress,
       }),
     });
 

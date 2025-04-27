@@ -40,8 +40,9 @@ export class InstallGuide extends HTMLElement {
             align-items: center;
             gap: 5px;
             background-color: var(--md-sys-color-surface-container-highest);
-            padding-inline-end: 20px;
+            padding-inline-end: 15px;
             border-radius: 24px;
+            font-weight: 500;
           }
   
           #install-guide .chip > img {
