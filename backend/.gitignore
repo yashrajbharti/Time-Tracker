@@ -23,3 +23,5 @@ candidates.json
 # IDE-specific
 .vscode/
 .idea/
+
+uploads/
