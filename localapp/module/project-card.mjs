@@ -1,4 +1,5 @@
 import { handleTimelog } from "../handlers/handleTimelog.mjs";
+import { handleWindowLogs } from "../handlers/handleWindowLogs.mjs";
 
 export class ProjectCard extends HTMLElement {
   constructor() {
@@ -81,7 +82,7 @@ export class ProjectCard extends HTMLElement {
 
     const projectId = this.getAttribute("id");
     const savedTime = localStorage.getItem(`timer-${projectId}`);
-    this.elapsedTime = savedTime ? parseInt(savedTime, 10) : 0;
+    this.elapsedTime = savedTime ? parseInt(savedTime) : 0;
     this.updateTimeDisplay();
 
     window.addEventListener("stop-all-timers", (event) => {
@@ -112,6 +113,8 @@ export class ProjectCard extends HTMLElement {
   startTimer() {
     this.isRunning = true;
     const projectId = this.getAttribute("id");
+    const taskId = this.getAttribute("taskId");
+    const employeeId = this.getAttribute("employeeId");
 
     this.timer = setInterval(() => {
       this.elapsedTime += 1;
@@ -121,15 +124,22 @@ export class ProjectCard extends HTMLElement {
     const FIVE_MINUTES = 5 * 60 * 1000;
 
     this.saveInterval = setInterval(() => {
+      const startTime = parseInt(localStorage.getItem(`timer-${projectId}`));
       localStorage.setItem(`timer-${projectId}`, this.elapsedTime.toString());
       handleTimelog(employeeId, projectId, this.elapsedTime);
+      handleWindowLogs(
+        employeeId,
+        projectId,
+        taskId,
+        startTime,
+        this.elapsedTime
+      );
     }, FIVE_MINUTES);
   }
 
   stopTimer() {
     this.isRunning = false;
     const projectId = this.getAttribute("id");
-    const taskId = this.getAttribute("taskId");
     const employeeId = this.getAttribute("employeeId");
 
     clearInterval(this.timer);

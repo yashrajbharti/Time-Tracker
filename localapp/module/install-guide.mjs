@@ -63,14 +63,14 @@ export class InstallGuide extends HTMLElement {
         </style>
   
         <section id="install-guide">
-          <img src="./icons/mercury.svg" alt="Mercury" height="120px">
+          <img src="./icons/mercury.svg" alt="Mercury" height="200px">
           <h2>Set up the Mercury Desktop App</h2>
           <ul>
             <li>
               <p>
                 Use
                 <strong class="chip" title="Google Chrome">
-                  <img src="./icons/Chrome.webp" alt="" height="24px"> Google Chrome
+                  <img src="./icons/Chrome.webp" alt="" height="24px" width="24px"> Google Chrome
                   <md-ripple></md-ripple>
                 </strong> on your desktop to open this site.
               </p>

@@ -1,4 +1,6 @@
 export const updateLastSynced = () => {
-  document.getElementById("time").textContent =
-    localStorage.getItem("lastSynced") || "00:00";
+  const time = document.getElementById("time");
+  const syncedTime = localStorage.getItem("lastSynced") || "00:00";
+  time.textContent = syncedTime;
+  time.setAttribute("datetime", syncedTime);
 };

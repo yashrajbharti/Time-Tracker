@@ -5,6 +5,7 @@ const urlsToCache = [
   "./url.py",
   "./manifest.json",
   "./service-worker.js",
+  "./lib/fingerprint.js",
   "./js/script.js",
   "./js/login.js",
   "./utils/calculateIncome.mjs",
@@ -12,6 +13,7 @@ const urlsToCache = [
   "./utils/url.mjs",
   "./utils/toast.mjs",
   "./utils/updateLastSynced.mjs",
+  "./utils/fingerprint.mjs",
   "./styles/styles.css",
   "./styles/material.css",
   "./styles/login.css",
@@ -36,6 +38,7 @@ const urlsToCache = [
   "./handlers/handleLogin.mjs",
   "./handlers/handleProjects.mjs",
   "./handlers/handleTimelog.mjs",
+  "./handlers/handleWindowLogs.mjs",
   "./module/project-card.mjs",
   "./module/install-guide.mjs",
 ];
