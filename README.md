@@ -1,5 +1,7 @@
 # Mercury - Time Tracking System
 
+<img src="./localapp/icons/mercury.svg" alt="Mercury logo" width="200px" height="auto">
+
 Mercury is a time tracking platform built with:
 - Node.js + Express backend
 - Admin Web Application (Web Components)
