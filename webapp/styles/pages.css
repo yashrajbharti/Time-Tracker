@@ -19,6 +19,8 @@ header {
     display: block;
     padding: 20px;
     inline-size: 100%;
+    z-index: 2;
+    background-color: var(--md-sys-color-background);
 }
 
 form {
@@ -40,4 +42,15 @@ md-filled-button {
     inline-size: 100%;
     padding-block: 15px;
     margin-block: 20px;
+}
+
+#analytics {
+    margin-block-start: 80px;
+    max-inline-size: 900px;
+    margin-inline: auto;
+    padding: 20px;
+
+    &>h1 {
+        text-align: center;
+    }
 }
