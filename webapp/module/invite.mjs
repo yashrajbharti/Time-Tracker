@@ -2,6 +2,7 @@ import { getEmployee } from "../api/employee.mjs";
 import { getProjects } from "../api/project.mjs";
 import { sendInvite } from "../api/sendInvite.mjs";
 import { invalidEmail } from "../utils/checkEmail.mjs";
+import { showToast } from "../utils/toast.mjs";
 
 const projectMap = new Map();
 
@@ -20,6 +21,9 @@ export const inviteEmployeesToProject = async () => {
 
     const projectId = projectMap.get(projectName);
     const employeeIds = await getEmployeeIds(emails);
+
+    if (!employeeIds.length || !employeeIds[0])
+      showToast("Create the employees first to send an invite!");
 
     for (let i = 0; i < emails.length; i++) {
       if (invalidEmail(emails[i]) || !employeeIds[i]) continue;
