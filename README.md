@@ -107,6 +107,11 @@ Make sure to update `.env` files with mail credentials and JWT secrets before ru
 | Frontend | HTML5, CSS5, Web Components, Vanilla JS |
 | PWA | Service Worker, Manifest.json, Cache API |
 
+## UI
+
+<img width="612" height="1123" alt="Screenshot 2025-08-02 at 3 10 29 PM" src="https://github.com/user-attachments/assets/7497ab54-7786-496e-b6ee-f2f1a64b058e" />
+
+
 ---
 
 > [!NOTE] 
