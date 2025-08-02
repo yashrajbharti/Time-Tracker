@@ -109,7 +109,7 @@ Make sure to update `.env` files with mail credentials and JWT secrets before ru
 
 ## UI
 
-<img width="300" height="auto" alt="Screenshot Time Tracker" src="https://github.com/user-attachments/assets/7497ab54-7786-496e-b6ee-f2f1a64b058e" />
+<img width="350" height="auto" alt="Screenshot Time Tracker" src="https://github.com/user-attachments/assets/7497ab54-7786-496e-b6ee-f2f1a64b058e" />
 
 
 ---
